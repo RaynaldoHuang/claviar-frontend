@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { Box, ChartNoAxesCombined, ChevronLeft, ChevronRight, CircleDollarSign, CreditCard, LayoutDashboard, LogOut, Menu, Package, ReceiptText, Search, Tags, UserRound, Users, X } from 'lucide-react'
+import { Box, ChartNoAxesCombined, ChevronLeft, ChevronRight, CircleDollarSign, CreditCard, LayoutDashboard, LogOut, Menu, Package, ReceiptText, Search, UserRound, Users, X } from 'lucide-react'
 import { api } from '@/api/client'
 import { authStore } from '@/stores/auth-store'
 import { feedback } from '@/components/feedback-store'
@@ -9,7 +9,7 @@ import { feedback } from '@/components/feedback-store'
 const nav = [
   { label: 'Dashboard', to: '/', icon: LayoutDashboard }, { label: 'Consignors', to: '/consignors', icon: Users },
   { label: 'Customers', to: '/customers', icon: UserRound },
-  { label: 'Product Cards', to: '/products', icon: Package }, { label: 'Customer Purchases', to: '/customer-purchases', icon: ReceiptText }, { label: 'Categories & Brands', to: '/lookups', icon: Tags },
+  { label: 'Product Cards', to: '/products', icon: Package }, { label: 'Customer Purchases', to: '/customer-purchases', icon: ReceiptText },
   { label: 'Sales History', to: '/sales', icon: CircleDollarSign }, { label: 'Payouts', to: '/payouts', icon: CreditCard },
   { label: 'Reports', to: '/reports', icon: ChartNoAxesCombined },
 ]
