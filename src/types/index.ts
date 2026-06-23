@@ -1,7 +1,7 @@
 export type User = { id: number; name: string; email: string; roles: string[]; permissions: string[] }
 export type Meta = { current_page: number; last_page: number; per_page: number; total: number }
 export type ApiCollection<T> = { data: T[]; meta?: Meta }
-export type Consignor = { id: number; name: string; phone?: string; email?: string; address?: string; notes?: string; products_count?: number; stock_count?: number; sold_count?: number }
+export type Consignor = { id: number; name: string; phone?: string; email?: string; address?: string; notes?: string; products_count?: number; stock_count?: number; sold_count?: number; payouts_count?: number; intake_batches_count?: number; can_delete?: boolean }
 export type Lookup = { id: number; name: string }
 export type ProductStatus = 'available' | 'pending' | 'reserved' | 'sold' | 'returned'
 export type Product = { id: number; code: string; name: string | null; description?: string; purchase_price: number | null; selling_price: number | null; condition: string | null; status: ProductStatus; is_draft: boolean; intake_batch_id?: number; consignor?: Consignor; category?: Lookup; brand?: Lookup; customer?: Pick<Customer, 'id' | 'name' | 'phone'>; sold_at?: string; images?: { id: number; url: string; is_cover: boolean }[] }
