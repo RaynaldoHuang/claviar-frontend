@@ -68,7 +68,7 @@ export function ProductsPage() {
   const selectedCustomerId = useWatch({ control: saleForm.control, name: 'customer_id' })
 
   const products = useQuery({ queryKey: ['products', search, cardStatus, consignorFilter], queryFn: async () => (await api.get<ApiCollection<Product>>('/products', { params: { search, status: cardStatus === 'sold' ? 'sold' : undefined, is_draft: cardStatus === 'draft' ? 1 : cardStatus === 'sold' ? 0 : undefined, consignor_id: consignorFilter, per_page: 100 } })).data })
-  const consignors = useQuery({ queryKey: ['consignors', 'options'], queryFn: async () => (await api.get<ApiCollection<Consignor>>('/consignors', { params: { per_page: 100 } })).data.data })
+  const consignors = useQuery({ queryKey: ['consignors', 'active-options'], queryFn: async () => (await api.get<ApiCollection<Consignor>>('/consignors', { params: { per_page: 100, active_only: 1 } })).data.data })
   const customers = useQuery({ queryKey: ['customers', 'options'], queryFn: async () => (await api.get<ApiCollection<Customer>>('/customers', { params: { per_page: 100 } })).data.data })
   const orders = useQuery({ queryKey: ['orders'], queryFn: async () => (await api.get<{ data: Order[] }>('/orders')).data.data })
   const orderCustomer = customers.data?.find(customer => customer.id === orderCustomerId)
