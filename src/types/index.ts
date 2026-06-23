@@ -1,7 +1,7 @@
 export type User = { id: number; name: string; email: string; roles: string[]; permissions: string[] }
 export type Meta = { current_page: number; last_page: number; per_page: number; total: number }
 export type ApiCollection<T> = { data: T[]; meta?: Meta }
-export type ConsignorStockStatus = 'available' | 'sold_out' | 'returned' | 'not_ready'
+export type ConsignorStockStatus = 'selling' | 'returned' | 'sold_out'
 export type Consignor = { id: number; name: string; phone?: string; email?: string; address?: string; notes?: string; stock_status?: ConsignorStockStatus | null; is_active: boolean; products_count?: number; stock_count?: number; ready_count?: number; draft_count?: number; reserved_count?: number; sold_count?: number; payouts_count?: number; intake_batches_count?: number; can_delete?: boolean }
 export type Lookup = { id: number; name: string }
 export type ProductStatus = 'available' | 'pending' | 'reserved' | 'sold' | 'returned'
